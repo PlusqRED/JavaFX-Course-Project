@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8899aa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.grape.course.controllers.StartPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcffea" height="200.0" layoutX="147.0" layoutY="172.0" stroke="#8795ff" strokeType="INSIDE" width="308.0" />
+      <JFXTextField fx:id="login_tf" focusColor="#000000" labelFloat="true" layoutX="193.0" layoutY="200.0" prefHeight="25.0" prefWidth="213.0" promptText="Логин" unFocusColor="#a19014" />
+      <JFXButton buttonType="RAISED" layoutX="193.0" layoutY="333.0" onAction="#signIn" prefWidth="100.0" ripplerFill="aliceblue" style="-fx-background-color: #aabbcc;" text="Войти" />
+      <JFXButton buttonType="RAISED" layoutX="306.0" layoutY="333.0" onAction="#signUp" prefWidth="100.0" ripplerFill="aliceblue" style="-fx-background-color: #ccddee;" text="Регистрация" />
+      <Text layoutX="150.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добро пожаловать!">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="147.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Войдите или зарегистрируйтесь">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <JFXPasswordField fx:id="password_tf" focusColor="#000000" labelFloat="true" layoutX="193.0" layoutY="260.0" prefHeight="25.0" prefWidth="213.0" promptText="Пароль" unFocusColor="#a19014" />
+   </children>
+</AnchorPane>

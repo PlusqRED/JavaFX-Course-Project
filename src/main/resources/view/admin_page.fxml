@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane style="-fx-background-color: #8899aa;" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.grape.course.controllers.AdminPageController" stylesheets="/static.css/main.css">
+   <children>
+      <JFXTabPane layoutX="6.0" prefHeight="377.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Управление экспертами">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="expert_tv" layoutX="-1.0" layoutY="1.0" prefHeight="361.0" prefWidth="349.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="172.0" text="Логин" />
+                            <TableColumn prefWidth="176.0" text="Пароль" />
+                          </columns>
+                        </TableView>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8ecff" height="200.0" layoutX="479.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <JFXTextField fx:id="expert_login_tf" layoutX="511.0" layoutY="120.0" promptText="Логин" />
+                        <JFXTextField fx:id="expert_password_tf" layoutX="511.0" layoutY="189.0" promptText="Пароль" />
+                        <JFXButton layoutX="363.0" layoutY="14.0" onAction="#expert_delete" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ffbbbb;" text="Удалить" />
+                        <JFXButton layoutX="544.0" layoutY="246.0" onAction="#expert_add" style="-fx-background-color: #bbffbb;" text="Добавить" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Управление целями">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="40.0" layoutY="34.0" spacing="35.0">
+                           <children>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <Spinner fx:id="goal_1_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                    <JFXTextField fx:id="aim_1_tf" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <Spinner fx:id="goal_2_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                    <JFXTextField fx:id="aim_2_tf" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <Spinner fx:id="goal_3_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                    <JFXTextField fx:id="aim_3_tf" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <Spinner fx:id="goal_4_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                    <JFXTextField fx:id="aim_4_tf" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <Spinner fx:id="goal_5_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                    <JFXTextField fx:id="aim_5_tf" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton layoutX="340.0" layoutY="324.0" onAction="#aim_update" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #ffffbb;" text="Обновить" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Управление пользователями">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="client_tv" prefHeight="361.0" prefWidth="349.0">
+                           <columns>
+                              <TableColumn prefWidth="172.0" text="Логин" />
+                              <TableColumn prefWidth="176.0" text="Пароль" />
+                           </columns>
+                        </TableView>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8ecff" height="200.0" layoutX="469.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <JFXTextField fx:id="client_login_tf" layoutX="502.0" layoutY="115.0" promptText="Логин" />
+                        <JFXTextField fx:id="client_password_tf" layoutX="502.0" layoutY="181.0" promptText="Пароль" />
+                        <JFXButton layoutX="363.0" layoutY="13.0" onAction="#client_delete" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ffbbbb;" text="Удалить" />
+                        <JFXButton layoutX="535.0" layoutY="238.0" onAction="#client_add" style="-fx-background-color: #bbffbb;" text="Добавить" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

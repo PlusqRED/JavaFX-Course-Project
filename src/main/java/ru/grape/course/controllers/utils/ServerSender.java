@@ -8,12 +8,22 @@ import java.io.IOException;
 
 public class ServerSender {
 
-    Datasource datasource = Datasource.getInstance();
-
     private static ServerSender instance;
+    private final Datasource datasource = Datasource.getInstance();
 
     private ServerSender() {
 
+    }
+
+    public static ServerSender getInstance() {
+        if (instance == null) {
+            synchronized (ServerSender.class) {
+                if (instance == null) {
+                    instance = new ServerSender();
+                }
+            }
+        }
+        return instance;
     }
 
     public void send(JSONObject message, DaoAction action) {
@@ -28,16 +38,5 @@ public class ServerSender {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static ServerSender getInstance() {
-        if(instance == null) {
-            synchronized (ServerSender.class) {
-                if(instance == null) {
-                    instance = new ServerSender();
-                }
-            }
-        }
-        return instance;
     }
 }

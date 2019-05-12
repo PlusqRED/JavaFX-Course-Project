@@ -22,9 +22,9 @@ import java.io.IOException;
 
 public class StartPageController {
 
-    private ServerSender serverSender = ServerSender.getInstance();
+    private final ServerSender serverSender = ServerSender.getInstance();
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @FXML
     private JFXTextField login_tf;
@@ -35,12 +35,12 @@ public class StartPageController {
     private Stage stage;
 
     @FXML
-    void signIn() throws IOException {
+    public void signIn() throws IOException {
         String login = login_tf.getText();
         String password = password_tf.getText();
 
         boolean allOk = true;
-        if(login.isEmpty()) {
+        if (login.isEmpty()) {
             login_tf.setText("");
             login_tf.setPromptText("Вы пропустили поле!");
             login_tf.unFocusColorProperty().set(Color.RED);
@@ -49,7 +49,7 @@ public class StartPageController {
             login_tf.unFocusColorProperty().set(Color.BLACK);
         }
 
-        if(password.isEmpty()) {
+        if (password.isEmpty()) {
             password_tf.setText("");
             password_tf.setPromptText("Вы пропустили поле!");
             password_tf.unFocusColorProperty().set(Color.RED);
@@ -58,13 +58,13 @@ public class StartPageController {
             password_tf.unFocusColorProperty().set(Color.BLACK);
         }
 
-        if(allOk) {
+        if (allOk) {
             JSONObject object = new JSONObject();
             object.put("login", login);
             serverSender.send(object, DaoAction.CHECK_IF_LOGIN_EXISTS);
             JSONObject retrieve = serverSender.retrieve();
             Account account = gson.fromJson(retrieve.getString("account"), Account.class);
-            if(account == null) {
+            if (account == null) {
                 DialogPopup.showDialog(stage, "Ошибка!", "Пользователя не существует", 400, 100);
                 login_tf.unFocusColorProperty().set(Color.RED);
             } else {
@@ -74,7 +74,7 @@ public class StartPageController {
                 jsonObject.put("toHash", password);
                 serverSender.send(jsonObject, DaoAction.GIVE_ME_HASH);
                 JSONObject hash = serverSender.retrieve();
-                if(account.getPassword().equals(hash.getString("hashed"))) {
+                if (account.getPassword().equals(hash.getString("hashed"))) {
                     Session.getInstance().setClient(getClientByAccountId(account.getId()));
                     switch (account.getRole()) {
                         case ADMIN:

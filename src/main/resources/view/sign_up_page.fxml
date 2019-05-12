@@ -13,8 +13,8 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #8899aa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.grape.course.controllers.SignUpPageController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1e9ff" height="621.0" layoutX="93.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="414.0" />
-        <VBox layoutX="129.0" layoutY="126.0" spacing="40.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1e9ff" height="621.0" layoutX="93.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="500.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" />
+        <VBox layoutX="125.0" layoutY="126.0" spacing="40.0">
             <children>
                 <HBox alignment="CENTER" spacing="30.0">
                     <children>
@@ -48,7 +48,7 @@
                 </HBox>
                 <HBox alignment="CENTER" spacing="30.0">
                     <children>
-                        <Label text="Телефон">
+                        <Label text="Телефон (12 цифр)">
                             <font>
                                 <Font size="15.0" />
                             </font>
@@ -108,15 +108,15 @@
                 </HBox>
             </children>
         </VBox>
-      <Text layoutX="169.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зарегистрируйтесь, пожалуйста">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <JFXButton buttonType="RAISED" layoutX="195.0" layoutY="731.0" onAction="#signUp" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: #aabbcc;" text="Зарегистрироваться">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </JFXButton>
+        <Text layoutX="199.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зарегистрируйтесь, пожалуйста">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <JFXButton buttonType="RAISED" layoutX="225.0" layoutY="730.0" onAction="#signUp" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: #aabbcc;" text="Зарегистрироваться">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </JFXButton>
     </children>
 </AnchorPane>

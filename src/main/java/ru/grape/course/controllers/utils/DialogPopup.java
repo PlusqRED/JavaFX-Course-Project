@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 
 public class DialogPopup {
 
-    private DialogPopup() {}
+    private DialogPopup() {
+    }
 
     public static void showDialog(Stage stage, String headingText, String bodyText, double dialogWidth, double dialogHeight) {
         JFXDecorator pane = (JFXDecorator) stage.getScene().getRoot();

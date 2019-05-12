@@ -18,6 +18,6 @@ public class Goal {
 
     public Goal(Spinner<Integer> goal_1_spinner, JFXTextField aim_1_tf) {
         this.name = aim_1_tf.getText();
-        this.priority= goal_1_spinner.getValue();
+        this.priority = goal_1_spinner.getValue();
     }
 }

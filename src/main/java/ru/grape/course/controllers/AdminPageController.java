@@ -15,19 +15,16 @@ import ru.grape.course.controllers.utils.DialogPopup;
 import ru.grape.course.controllers.utils.ServerSender;
 import ru.grape.course.dao.Datasource;
 import ru.grape.course.model.Account;
-import ru.grape.course.model.Client;
 import ru.grape.course.model.Goal;
 import ru.grape.course.model.Role;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdminPageController {
-    private Gson gson = new Gson();
-    private Datasource datasource = Datasource.getInstance();
-    private ServerSender serverSender = ServerSender.getInstance();
+    private final Gson gson = new Gson();
+    private final ServerSender serverSender = ServerSender.getInstance();
 
     @FXML
     private TableView<Account> expert_tv;
@@ -79,7 +76,7 @@ public class AdminPageController {
     private Stage stage;
 
     @FXML
-    void client_add() {
+    public void client_add() {
         String login, password;
         if (!(login = client_login_tf.getText()).isEmpty() && !(password = client_password_tf.getText()).isEmpty()) {
             Account account = Account.builder()
@@ -105,7 +102,7 @@ public class AdminPageController {
     }
 
     @FXML
-    void client_delete() {
+    public void client_delete() {
         if (client_tv.getSelectionModel().getSelectedItem() != null) {
             String login = client_tv.getSelectionModel().getSelectedItem().getLogin();
             client_tv.getItems().remove(client_tv.getSelectionModel().getSelectedItem());
@@ -118,7 +115,7 @@ public class AdminPageController {
     }
 
     @FXML
-    void expert_add() {
+    public void expert_add() {
         String login, password;
         if (!(login = expert_login_tf.getText()).isEmpty() && !(password = expert_password_tf.getText()).isEmpty()) {
             Account account = Account.builder()
@@ -136,7 +133,7 @@ public class AdminPageController {
     }
 
     @FXML
-    void expert_delete() {
+    public void expert_delete() {
         if (expert_tv.getSelectionModel().getSelectedItem() != null) {
             String login = expert_tv.getSelectionModel().getSelectedItem().getLogin();
             expert_tv.getItems().remove(expert_tv.getSelectionModel().getSelectedItem());
@@ -148,7 +145,7 @@ public class AdminPageController {
     }
 
     @FXML
-    void aim_update() {
+    public void aim_update() {
         List<Goal> goalsToUpdate = new ArrayList<>();
         goalsToUpdate.add(new Goal(goal_1_spinner, aim_1_tf));
         goalsToUpdate.add(new Goal(goal_2_spinner, aim_2_tf));

@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,17 +22,18 @@ import ru.grape.course.controllers.utils.ServerSender;
 import ru.grape.course.model.*;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 public class ExpertPageController {
-    private ServerSender serverSender = ServerSender.getInstance();
-    private Gson gson = new Gson();
+    private final ServerSender serverSender = ServerSender.getInstance();
+    private final Gson gson = new Gson();
 
     @FXML
     private Spinner<Integer> z11;
@@ -257,9 +260,27 @@ public class ExpertPageController {
     private Stage stage;
     private List<Goal> goals;
 
+    @FXML
+    private TableView<RateJoinClient> clients_info_tv;
 
     @FXML
-    void calculate() {
+    private JFXTextField client_name;
+
+    @FXML
+    private JFXTextField client_surname;
+
+    @FXML
+    private JFXTextField client_phone;
+
+    @FXML
+    private JFXTextField client_city;
+
+    @FXML
+    private JFXTextField client_age;
+
+
+    @FXML
+    public void calculate() {
         int n = 5;
         Integer z11Value = z11.getValue();
         Integer z12Value = z12.getValue();
@@ -390,22 +411,8 @@ public class ExpertPageController {
         loadGoals();
     }
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    private class GoalPriority {
-        private int id;
-        private double priority;
-        private int integerPriority;
-
-        public GoalPriority(int id, double priority) {
-            this.id = id;
-            this.priority = priority;
-        }
-    }
-
     @FXML
-    void cancelAll() {
+    public void cancelAll() {
         Stream.of(z11, z12, z13, z14, z15,
                 z21, z22, z23, z24, z25,
                 z31, z32, z33, z34, z35,
@@ -421,7 +428,7 @@ public class ExpertPageController {
     }
 
     @FXML
-    void help() {
+    public void help() {
         DialogPopup.showDialog(stage, "Пояснение", "Была созвана группа экспертов из 5-х человек для определения приоритетов целей.\n" +
                 "Каждый эксперт оценивает приоритетность цели от 1 до 10. \n Когда эксперты окончат расставлять свои оценки, нажать кнопку 'рассчитать'.", 450, 200);
 
@@ -441,18 +448,70 @@ public class ExpertPageController {
                                 1)));
         loadOverallStatistics();
         loadGoals();
+        loadRates();
+    }
+
+    private void loadRates() {
+        serverSender.send(new JSONObject(), DaoAction.GET_RATES);
+        JSONObject retrieve = serverSender.retrieve();
+        Type ratesList = new TypeToken<ArrayList<Rate>>() {
+        }.getType();
+        List<Rate> rates = gson.fromJson(retrieve.getString("rates"), ratesList);
+        List<RateJoinClient> rateJoinClients = convertToRateJoinClientList(rates);
+        clients_info_tv.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("surname"));
+        clients_info_tv.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("phone"));
+        clients_info_tv.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("variety"));
+        clients_info_tv.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("satisfaction"));
+        clients_info_tv.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("exercise_time"));
+        clients_info_tv.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("trainers_time"));
+        clients_info_tv.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("quality"));
+        clients_info_tv.getItems().addAll(rateJoinClients);
+        clients_info_tv.setOnMouseClicked(e -> {
+            RateJoinClient rateJoinClient;
+            if ((rateJoinClient = clients_info_tv.getSelectionModel().getSelectedItem()) != null) {
+                client_name.setText(rateJoinClient.getName() == null ? "Еще не задано" : rateJoinClient.getName());
+                client_surname.setText(rateJoinClient.getSurname() == null ? "Еще не задано" : rateJoinClient.getSurname());
+                client_city.setText(rateJoinClient.getCity() == null ? "Еще не задано" : rateJoinClient.getCity());
+                client_phone.setText(rateJoinClient.getPhone() == 0 ? "Еще не задано" : String.valueOf(rateJoinClient.getPhone()));
+                if (rateJoinClient.birthday != null) {
+                    int age = Period.between(rateJoinClient.birthday, LocalDate.now()).getYears();
+                    client_age.setText(String.valueOf(age));
+                } else {
+                    client_age.setText("Еще не задано");
+                }
+            }
+        });
+    }
+
+    private List<RateJoinClient> convertToRateJoinClientList(List<Rate> rates) {
+        List<RateJoinClient> list = new ArrayList<>();
+        rates.forEach(e -> list.add(new RateJoinClient(
+                e.getClient().getName() == null ? "Еще не задано" : e.getClient().getName(),
+                e.getClient().getSurname() == null ? "Еще не задано" : e.getClient().getSurname(),
+                e.getClient().getCity() == null ? "Еще не задано" : e.getClient().getCity(),
+                e.getClient().getPhone(),
+                e.getClient().getBirthday(),
+                e.getVariety(),
+                e.getSatisfaction(),
+                e.getExercise_time(),
+                e.getTrainers_time(),
+                e.getQuality()
+        )));
+        return list;
     }
 
     private void loadOverallStatistics() {
         serverSender.send(new JSONObject(), DaoAction.GET_ALL_CLIENTS);
         JSONObject jsonClients = serverSender.retrieve();
-        Type clientsList = new TypeToken<ArrayList<Client>>() {}.getType();
+        Type clientsList = new TypeToken<ArrayList<Client>>() {
+        }.getType();
         List<Client> clients = gson.fromJson(jsonClients.getString("clients"), clientsList);
         overall_clients.setText(String.valueOf(clients.size()));
 
         serverSender.send(new JSONObject(), DaoAction.GET_ALL_SERVICES);
         JSONObject jsonServices = serverSender.retrieve();
-        Type servicesList = new TypeToken<ArrayList<Service>>() {}.getType();
+        Type servicesList = new TypeToken<ArrayList<Service>>() {
+        }.getType();
         List<Service> services = gson.fromJson(jsonServices.getString("services"), servicesList);
         overall_services.setText(String.valueOf(services.size()));
 
@@ -464,46 +523,53 @@ public class ExpertPageController {
 
         serverSender.send(new JSONObject(), DaoAction.GET_RATES);
         JSONObject retrieve = serverSender.retrieve();
-        Type ratesList = new TypeToken<ArrayList<Rate>>() {}.getType();
+        Type ratesList = new TypeToken<ArrayList<Rate>>() {
+        }.getType();
         List<Rate> rates = gson.fromJson(retrieve.getString("rates"), ratesList);
         rates.stream()
                 .map(Rate::getVariety)
                 .mapToDouble(Integer::doubleValue)
                 .average()
-                .ifPresent(value -> overall_variety.setText(String.valueOf(value)));
+                .ifPresent(value -> overall_variety.setText((String.format("%.2f", value))));
         rates.stream()
                 .map(Rate::getSatisfaction)
                 .mapToDouble(Integer::doubleValue)
                 .average()
-                .ifPresent(value -> overall_satisfaction.setText(String.valueOf(value)));
+                .ifPresent(value -> overall_satisfaction.setText((String.format("%.2f", value))));
         rates.stream()
                 .map(Rate::getExercise_time)
                 .mapToDouble(Integer::doubleValue)
                 .average()
-                .ifPresent(value -> overall_time.setText(String.valueOf(value)));
+                .ifPresent(value -> overall_time.setText((String.format("%.2f", value))));
         rates.stream()
                 .map(Rate::getTrainers_time)
                 .mapToDouble(Integer::doubleValue)
                 .average()
-                .ifPresent(value -> overall_trener_time.setText(String.valueOf(value)));
+                .ifPresent(value -> overall_trener_time.setText((String.format("%.2f", value))));
         rates.stream()
                 .map(Rate::getQuality)
                 .mapToDouble(Integer::doubleValue)
                 .average()
-                .ifPresent(value -> overall_quality.setText(String.valueOf(value)));
-                ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Разнообразие", Double.valueOf(overall_variety.getText())),
-                new PieChart.Data("Удовлетворенность", Double.valueOf(overall_satisfaction.getText())),
-                new PieChart.Data("Время для посещения", Double.valueOf(overall_time.getText())),
-                new PieChart.Data("Время от тренера", Double.valueOf(overall_trener_time.getText())),
-                new PieChart.Data("Цена/качество", Double.valueOf(overall_quality.getText())));
+                .ifPresent(value -> overall_quality.setText((String.format("%.2f", value))));
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("Разнообразие",
+                        Double.valueOf(overall_variety.getText().replace(",", "."))),
+                new PieChart.Data("Удовлетворенность",
+                        Double.valueOf(overall_satisfaction.getText().replace(",", "."))),
+                new PieChart.Data("Время для посещения",
+                        Double.valueOf(overall_time.getText().replace(",", "."))),
+                new PieChart.Data("Время от тренера",
+                        Double.valueOf(overall_trener_time.getText().replace(",", "."))),
+                new PieChart.Data("Цена/качество",
+                        Double.valueOf(overall_quality.getText().replace(",", "."))));
         pieChart.setData(pieChartData);
     }
 
     private void loadGoals() {
         serverSender.send(new JSONObject(), DaoAction.GET_GOALS);
         JSONObject inputObject = serverSender.retrieve();
-        Type goalsList = new TypeToken<ArrayList<Goal>>() {}.getType();
+        Type goalsList = new TypeToken<ArrayList<Goal>>() {
+        }.getType();
         List<Goal> goals = gson.fromJson(inputObject.getString("goals"), goalsList);
         loadGoal(goal_1_spinner, aim_1_tf, goals.get(0));
         loadGoal(goal_2_spinner, aim_2_tf, goals.get(1));
@@ -520,5 +586,35 @@ public class ExpertPageController {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class GoalPriority {
+        private int id;
+        private double priority;
+        private int integerPriority;
+
+        GoalPriority(int id, double priority) {
+            this.id = id;
+            this.priority = priority;
+        }
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class RateJoinClient {
+        private String name;
+        private String surname;
+        private String city;
+        private Long phone;
+        private LocalDate birthday;
+        private Integer variety;
+        private Integer satisfaction;
+        private Integer exercise_time;
+        private Integer trainers_time;
+        private Integer quality;
     }
 }

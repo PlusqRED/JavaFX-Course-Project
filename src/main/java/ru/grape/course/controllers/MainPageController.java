@@ -27,8 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageController {
-    private ServerSender serverSender = ServerSender.getInstance();
-    private Gson gson = new Gson();
+    private final ServerSender serverSender = ServerSender.getInstance();
+    private final Gson gson = new Gson();
     @FXML
     private ImageView all_service_imageView;
 
@@ -80,7 +80,7 @@ public class MainPageController {
     private Stage stage;
 
     @FXML
-    void add_to_my_services() {
+    public void add_to_my_services() {
         Exercise selectedItem = services_tv.getSelectionModel().getSelectedItem();
         Service service = Service.builder()
                 .client(Session.getInstance().getClient())
@@ -95,7 +95,7 @@ public class MainPageController {
     }
 
     @FXML
-    void profile_update() {
+    public void profile_update() {
         boolean allOk = true;
         Account account = Session.getInstance().getClient().getAccount();
 
@@ -112,7 +112,7 @@ public class MainPageController {
         } else {
             profile_height.setUnFocusColor(Color.BLACK);
         }
-        if (!profile_phone.getText().matches("[0-9]{7}")) {
+        if (!profile_phone.getText().matches("[0-9]{12}")) {
             allOk = false;
             profile_phone.setUnFocusColor(Color.RED);
         } else {
@@ -143,7 +143,7 @@ public class MainPageController {
     }
 
     @FXML
-    void review_send() {
+    public void review_send() {
         Rate rate = Rate.builder()
                 .client(Session.getInstance().getClient())
                 .variety((int) Math.round(review_variety.getValue()))
@@ -171,7 +171,7 @@ public class MainPageController {
         serverSender.send(jsonObject, DaoAction.GET_RATE_BY_CLIENT_ID);
         JSONObject retrieve = serverSender.retrieve();
         Rate rate = gson.fromJson(retrieve.getString("rate"), Rate.class);
-        if(rate != null) {
+        if (rate != null) {
             review_variety.setValue(rate.getVariety());
             review_satisfaction.setValue(rate.getSatisfaction());
             review_exercise_time.setValue(rate.getExercise_time());

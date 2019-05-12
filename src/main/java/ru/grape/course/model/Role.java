@@ -10,10 +10,6 @@ public enum Role {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public static Role identify(int id) {
         switch (id) {
             case 1:
@@ -25,5 +21,9 @@ public enum Role {
             default:
                 return null;
         }
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -5,10 +5,11 @@ import ru.grape.course.model.Client;
 public class Session {
     private static Session instance;
     private Client client;
+
     public static Session getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             synchronized (Session.class) {
-                if(instance == null) {
+                if (instance == null) {
                     instance = new Session();
                 }
             }

@@ -13,7 +13,6 @@ import org.json.JSONObject;
 import ru.grape.course.controllers.commons.DaoAction;
 import ru.grape.course.controllers.utils.DialogPopup;
 import ru.grape.course.controllers.utils.ServerSender;
-import ru.grape.course.dao.Datasource;
 import ru.grape.course.model.Account;
 import ru.grape.course.model.Goal;
 import ru.grape.course.model.Role;

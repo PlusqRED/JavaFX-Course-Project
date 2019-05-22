@@ -215,7 +215,7 @@ public class MainPageController {
                 controller.setImage(imageView.getImage());
                 controller.setName(e.getExercise().getName());
                 controller.setDescription(e.getExercise().getDescription());
-                controller.setPrice(String.format("$%.2f", e.getExercise().getPrice()));
+                controller.setPrice(String.format("%.2f руб.", e.getExercise().getPrice()));
                 parent.setOnMouseClicked(mouseEvent -> {
                     if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                         showPopup(parent, e.getExercise().getId(), mouseEvent.getX(), mouseEvent.getY());

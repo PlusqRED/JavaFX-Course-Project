@@ -48,7 +48,7 @@
                                     <columns>
                                         <TableColumn prefWidth="221.0" text="Название" />
                                         <TableColumn prefWidth="113.0" text="Мин. возраст" />
-                                        <TableColumn prefWidth="165.0" text="Цена" />
+                                        <TableColumn prefWidth="165.0" text="Цена, руб" />
                                     </columns>
                                 </TableView>
                             </children>

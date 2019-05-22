@@ -1,75 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="800.0" prefWidth="1000.0"
-            style="-fx-background-color: #8899aa;" stylesheets="/static.css/main.css"
-            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="ru.grape.course.controllers.ExpertPageController">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #8899aa;" stylesheets="/static.css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.grape.course.controllers.ExpertPageController">
     <children>
-        <JFXTabPane layoutX="6.0" prefHeight="377.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <JFXTabPane layoutX="6.0" prefHeight="377.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
             <tabs>
                 <Tab text="Экспертный метод">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7aff7868" height="315.0" layoutX="14.0"
-                                           layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="456.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7ff6469" height="315.0"
-                                           layoutX="515.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE"
-                                           width="456.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d485ff72" height="115.0"
-                                           layoutX="190.0" layoutY="596.0" stroke="BLACK" strokeType="INSIDE"
-                                           width="624.0"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7aff7868" height="315.0" layoutX="14.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="456.0" />
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7ff6469" height="315.0" layoutX="515.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="456.0" />
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d485ff72" height="115.0" layoutX="190.0" layoutY="596.0" stroke="BLACK" strokeType="INSIDE" width="624.0" />
                                 <VBox layoutX="53.0" layoutY="149.0" spacing="30.0" AnchorPane.leftAnchor="60.0">
                                     <children>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="z11" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z12" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z13" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z14" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z15" editable="true" prefWidth="60.0"/>
+                                                <Spinner fx:id="z11" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z12" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z13" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z14" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z15" editable="true" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="z21" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z22" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z23" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z24" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z25" editable="true" prefWidth="60.0"/>
+                                                <Spinner fx:id="z21" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z22" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z23" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z24" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z25" editable="true" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="z31" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z32" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z33" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z34" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z35" editable="true" prefWidth="60.0"/>
+                                                <Spinner fx:id="z31" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z32" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z33" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z34" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z35" editable="true" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="z41" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z42" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z43" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z44" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z45" editable="true" prefWidth="60.0"/>
+                                                <Spinner fx:id="z41" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z42" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z43" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z44" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z45" editable="true" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="z51" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z52" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z53" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z54" editable="true" prefWidth="60.0"/>
-                                                <Spinner fx:id="z55" editable="true" prefWidth="60.0"/>
+                                                <Spinner fx:id="z51" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z52" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z53" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z54" editable="true" prefWidth="60.0" />
+                                                <Spinner fx:id="z55" editable="true" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                     </children>
@@ -78,131 +83,122 @@
                                     <children>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <JFXTextField fx:id="mz11" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz12" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz13" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz14" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz15" editable="false" prefWidth="60.0"/>
+                                                <JFXTextField fx:id="mz11" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz12" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz13" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz14" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz15" editable="false" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <JFXTextField fx:id="mz21" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz22" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz23" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz24" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz25" editable="false" prefWidth="60.0"/>
+                                                <JFXTextField fx:id="mz21" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz22" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz23" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz24" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz25" editable="false" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <JFXTextField fx:id="mz31" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz32" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz33" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz34" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz35" editable="false" prefWidth="60.0"/>
+                                                <JFXTextField fx:id="mz31" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz32" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz33" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz34" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz35" editable="false" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <JFXTextField fx:id="mz41" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz42" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz43" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz44" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz45" editable="false" prefWidth="60.0"/>
+                                                <JFXTextField fx:id="mz41" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz42" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz43" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz44" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz45" editable="false" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <JFXTextField fx:id="mz51" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz52" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz53" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz54" editable="false" prefWidth="60.0"/>
-                                                <JFXTextField fx:id="mz55" editable="false" prefWidth="60.0"/>
+                                                <JFXTextField fx:id="mz51" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz52" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz53" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz54" editable="false" prefWidth="60.0" />
+                                                <JFXTextField fx:id="mz55" editable="false" prefWidth="60.0" />
                                             </children>
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <Text layoutX="160.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Исходная матрица">
+                                <Text layoutX="160.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Исходная матрица">
                                     <font>
-                                        <Font size="21.0"/>
+                                        <Font size="21.0" />
                                     </font>
                                 </Text>
-                                <Text layoutX="607.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Модифицированная матрица">
+                                <Text layoutX="607.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Модифицированная матрица">
                                     <font>
-                                        <Font size="21.0"/>
+                                        <Font size="21.0" />
                                     </font>
                                 </Text>
                                 <VBox alignment="CENTER" layoutX="23.0" layoutY="149.0" spacing="40.0">
                                     <children>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" text="В1"/>
-                                        <Label text="В2"/>
-                                        <Label text="В3"/>
-                                        <Label text="В4"/>
-                                        <Label text="В5"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" text="В1" />
+                                        <Label text="В2" />
+                                        <Label text="В3" />
+                                        <Label text="В4" />
+                                        <Label text="В5" />
                                     </children>
                                 </VBox>
                                 <VBox alignment="CENTER" layoutX="526.0" layoutY="149.0" spacing="40.0">
                                     <children>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" text="В1"/>
-                                        <Label text="В2"/>
-                                        <Label text="В3"/>
-                                        <Label text="В4"/>
-                                        <Label text="В5"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" text="В1" />
+                                        <Label text="В2" />
+                                        <Label text="В3" />
+                                        <Label text="В4" />
+                                        <Label text="В5" />
                                     </children>
                                 </VBox>
                                 <HBox layoutX="55.0" layoutY="114.0" spacing="30.0">
                                     <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 1"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 2"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 3"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 4"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 5"/>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 1" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 2" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 3" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 4" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 5" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="560.0" layoutY="114.0" spacing="30.0">
                                     <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 1"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 2"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 3"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 4"/>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 5"/>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 1" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 2" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 3" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 4" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эксперт 5" />
                                     </children>
                                 </HBox>
                                 <VBox layoutX="220.0" layoutY="615.0" spacing="20.0">
                                     <children>
                                         <HBox spacing="70.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 1"/>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 2"/>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 3"/>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 4"/>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 5"/>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 4" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вариант 5" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="40.0">
                                             <children>
-                                                <JFXTextField fx:id="w1" editable="false" prefWidth="80.0"
-                                                              unFocusColor="WHITE"/>
-                                                <JFXTextField fx:id="w2" editable="false" prefWidth="80.0"
-                                                              unFocusColor="WHITE"/>
-                                                <JFXTextField fx:id="w3" editable="false" prefWidth="80.0"
-                                                              unFocusColor="WHITE"/>
-                                                <JFXTextField fx:id="w4" editable="false" prefWidth="80.0"
-                                                              unFocusColor="WHITE"/>
-                                                <JFXTextField fx:id="w5" editable="false" prefWidth="80.0"
-                                                              unFocusColor="WHITE"/>
+                                                <JFXTextField fx:id="w1" editable="false" prefWidth="80.0" unFocusColor="WHITE" />
+                                                <JFXTextField fx:id="w2" editable="false" prefWidth="80.0" unFocusColor="WHITE" />
+                                                <JFXTextField fx:id="w3" editable="false" prefWidth="80.0" unFocusColor="WHITE" />
+                                                <JFXTextField fx:id="w4" editable="false" prefWidth="80.0" unFocusColor="WHITE" />
+                                                <JFXTextField fx:id="w5" editable="false" prefWidth="80.0" unFocusColor="WHITE" />
                                             </children>
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <JFXButton buttonType="RAISED" layoutX="427.0" layoutY="487.0" onAction="#calculate"
-                                           prefHeight="55.0" prefWidth="146.0" ripplerFill="WHITE"
-                                           style="-fx-background-color: #aaffaa;" text="Рассчитать">
+                                <JFXButton buttonType="RAISED" layoutX="427.0" layoutY="487.0" onAction="#calculate" prefHeight="55.0" prefWidth="146.0" ripplerFill="WHITE" style="-fx-background-color: #aaffaa;" text="Рассчитать">
                                     <font>
-                                        <Font size="18.0"/>
+                                        <Font size="18.0" />
                                     </font>
                                 </JFXButton>
                             </children>
@@ -213,47 +209,42 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0f0ff1e" height="453.0" layoutX="72.0"
-                                           layoutY="155.0" stroke="BLACK" strokeType="INSIDE" width="858.0"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0f0ff1e" height="453.0" layoutX="72.0" layoutY="155.0" stroke="BLACK" strokeType="INSIDE" width="858.0" />
                                 <VBox layoutX="132.0" layoutY="219.0" spacing="50.0">
                                     <children>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="goal_1_spinner" prefHeight="25.0" prefWidth="70.0"/>
-                                                <JFXTextField fx:id="aim_1_tf" editable="false" prefHeight="25.0"
-                                                              prefWidth="647.0" promptText="Цель"/>
+                                                <Spinner fx:id="goal_1_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXTextField fx:id="aim_1_tf" editable="false" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="goal_2_spinner" prefHeight="25.0" prefWidth="70.0"/>
-                                                <JFXTextField fx:id="aim_2_tf" editable="false" prefHeight="25.0"
-                                                              prefWidth="647.0" promptText="Цель"/>
+                                                <Spinner fx:id="goal_2_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXTextField fx:id="aim_2_tf" editable="false" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="goal_3_spinner" prefHeight="25.0" prefWidth="70.0"/>
-                                                <JFXTextField fx:id="aim_3_tf" editable="false" prefHeight="25.0"
-                                                              prefWidth="647.0" promptText="Цель"/>
+                                                <Spinner fx:id="goal_3_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXTextField fx:id="aim_3_tf" editable="false" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="goal_4_spinner" prefHeight="25.0" prefWidth="70.0"/>
-                                                <JFXTextField fx:id="aim_4_tf" editable="false" prefHeight="25.0"
-                                                              prefWidth="647.0" promptText="Цель"/>
+                                                <Spinner fx:id="goal_4_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXTextField fx:id="aim_4_tf" editable="false" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
                                             </children>
                                         </HBox>
                                         <HBox spacing="20.0">
                                             <children>
-                                                <Spinner fx:id="goal_5_spinner" prefHeight="25.0" prefWidth="70.0"/>
-                                                <JFXTextField fx:id="aim_5_tf" editable="false" prefHeight="25.0"
-                                                              prefWidth="647.0" promptText="Цель"/>
+                                                <Spinner fx:id="goal_5_spinner" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXTextField fx:id="aim_5_tf" editable="false" prefHeight="25.0" prefWidth="647.0" promptText="Цель" />
                                             </children>
                                         </HBox>
                                     </children>
                                 </VBox>
+                        <Text layoutX="132.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Приоритеты" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -262,115 +253,100 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c58fff66" height="472.0" layoutX="89.0"
-                                           layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="800.0"
-                                           AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0"/>
-                                <PieChart fx:id="pieChart" layoutX="368.0" layoutY="24.0" prefHeight="212.0"
-                                          prefWidth="265.0"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c58fff66" height="472.0" layoutX="89.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="800.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+                                <PieChart fx:id="pieChart" layoutX="368.0" layoutY="24.0" prefHeight="212.0" prefWidth="265.0" />
                                 <VBox layoutX="218.0" layoutY="266.0" spacing="30.0">
                                     <children>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая сумма заказанных услуг:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая сумма заказанных услуг:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_services_sum"/>
+                                                <JFXTextField fx:id="overall_services_sum" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="руб." />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общее количество заказанных услуг:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общее количество заказанных услуг:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_services"/>
+                                                <JFXTextField fx:id="overall_services" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общее количество действующих клиентов:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общее количество действующих клиентов:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_clients"/>
+                                                <JFXTextField fx:id="overall_clients" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая удовлетворенность разнообразием услуг:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая удовлетворенность разнообразием услуг:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_variety"/>
+                                                <JFXTextField fx:id="overall_variety" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая удовлетворенность фитнес. залом:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая удовлетворенность фитнес. залом:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_satisfaction"/>
+                                                <JFXTextField fx:id="overall_satisfaction" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая удовлетворенность временем:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая удовлетворенность временем:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_time"/>
+                                                <JFXTextField fx:id="overall_time" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая удовлетворенность вниманием специалиста:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая удовлетворенность вниманием специалиста:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_trener_time"/>
+                                                <JFXTextField fx:id="overall_trener_time" />
                                             </children>
                                         </HBox>
-                                        <HBox spacing="30.0">
+                                        <HBox alignment="CENTER" spacing="30.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                                      text="Общая удовлетворенность ценой/качество услуг:">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Общая удовлетворенность ценой/качество услуг:">
                                                     <font>
-                                                        <Font size="20.0"/>
+                                                        <Font size="20.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="overall_quality"/>
+                                                <JFXTextField fx:id="overall_quality" />
                                             </children>
                                         </HBox>
                                     </children>
                                 </VBox>
                                 <VBox layoutX="164.0" layoutY="438.0" spacing="27.0">
                                     <children>
-                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e56738" height="30.0"
-                                                   stroke="BLACK" strokeType="INSIDE" width="30.0"/>
-                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e19418" height="30.0"
-                                                   stroke="BLACK" strokeType="INSIDE" width="30.0"/>
-                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5aaf5a" height="30.0"
-                                                   stroke="BLACK" strokeType="INSIDE" width="30.0"/>
-                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b4fb4" height="30.0"
-                                                   stroke="BLACK" strokeType="INSIDE" width="30.0"/>
-                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3a98b4" height="30.0"
-                                                   stroke="BLACK" strokeType="INSIDE" width="30.0"/>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e56738" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e19418" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5aaf5a" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b4fb4" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3a98b4" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
                                     </children>
                                 </VBox>
                             </children>
@@ -381,53 +357,48 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="clients_info_tv" layoutX="366.0" layoutY="136.0" prefHeight="200.0"
-                                           prefWidth="200.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0"
-                                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="clients_info_tv" layoutX="366.0" layoutY="136.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn prefWidth="127.0" text="Фамилия"/>
-                                        <TableColumn minWidth="0.0" prefWidth="116.0" text="Телефон"/>
-                                        <TableColumn prefWidth="149.0" text="Удовл. разнообразием"/>
-                                        <TableColumn prefWidth="145.0" text="Удовл. фитнес залом"/>
-                                        <TableColumn prefWidth="134.0" text="Удовл. расписанием"/>
-                                        <TableColumn prefWidth="180.0" text="Удовл. временем с тренером"/>
-                                        <TableColumn prefWidth="148.0" text="Удовл. цена/качество"/>
+                                        <TableColumn prefWidth="127.0" text="Фамилия" />
+                                        <TableColumn minWidth="0.0" prefWidth="116.0" text="Телефон" />
+                                        <TableColumn prefWidth="149.0" text="Удовл. разнообразием" />
+                                        <TableColumn prefWidth="145.0" text="Удовл. фитнес залом" />
+                                        <TableColumn prefWidth="134.0" text="Удовл. расписанием" />
+                                        <TableColumn prefWidth="180.0" text="Удовл. временем с тренером" />
+                                        <TableColumn prefWidth="148.0" text="Удовл. цена/качество" />
                                     </columns>
                                 </TableView>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff6b" height="286.0" layoutX="14.0"
-                                           layoutY="446.0" stroke="#00000079" strokeType="INSIDE" width="974.0"
-                                           AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
-                                           AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="445.0"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff6b" height="286.0" layoutX="14.0" layoutY="446.0" stroke="#00000079" strokeType="INSIDE" width="974.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="445.0" />
                                 <HBox layoutX="36.0" layoutY="490.0" spacing="50.0">
                                     <children>
                                         <HBox alignment="CENTER" spacing="40.0">
                                             <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="client_name" editable="false"/>
+                                                <JFXTextField fx:id="client_name" editable="false" />
                                             </children>
                                         </HBox>
                                         <HBox alignment="CENTER" spacing="40.0">
                                             <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="client_surname" editable="false"/>
+                                                <JFXTextField fx:id="client_surname" editable="false" />
                                             </children>
                                         </HBox>
                                         <HBox alignment="CENTER" spacing="40.0">
                                             <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Номер телефона">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="client_phone" editable="false"/>
+                                                <JFXTextField fx:id="client_phone" editable="false" />
                                             </children>
                                         </HBox>
                                     </children>
@@ -438,12 +409,12 @@
                                             <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Город">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Text>
                                                 <HBox>
                                                     <children>
-                                                        <JFXTextField fx:id="client_city" editable="false"/>
+                                                        <JFXTextField fx:id="client_city" editable="false" />
                                                     </children>
                                                 </HBox>
                                             </children>
@@ -452,10 +423,10 @@
                                             <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Возраст">
                                                     <font>
-                                                        <Font size="22.0"/>
+                                                        <Font size="22.0" />
                                                     </font>
                                                 </Text>
-                                                <JFXTextField fx:id="client_age" editable="false"/>
+                                                <JFXTextField fx:id="client_age" editable="false" />
                                             </children>
                                         </HBox>
                                     </children>
@@ -470,12 +441,12 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Управление">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#cancelAll" text="Сбросить все"/>
+                        <MenuItem mnemonicParsing="false" onAction="#cancelAll" text="Сбросить все" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Помощь">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#help" text="Инструкция"/>
+                        <MenuItem mnemonicParsing="false" onAction="#help" text="Инструкция" />
                     </items>
                 </Menu>
             </menus>

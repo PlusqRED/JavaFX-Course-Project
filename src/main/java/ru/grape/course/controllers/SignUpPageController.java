@@ -18,9 +18,8 @@ import java.time.LocalDate;
 
 public class SignUpPageController {
     private final ServerSender serverSender = ServerSender.getInstance();
-    private Stage stage;
     private final Gson gson = new Gson();
-
+    private Stage stage;
     @FXML
     private JFXTextField profile_name;
 
